@@ -21,6 +21,7 @@ import java.util.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.*;
 
 public class Gui {
 
@@ -46,15 +47,16 @@ public class Gui {
     while (!correctFile){
       
       try{
+        Recipe.loadRecipes(fileName);
+        System.out.println(fileName);
+        collection = Recipe.recipes;
+        correctFile = true;
         
-      Recipe.loadRecipes(fileName);
-      collection = Recipe.recipes;
-      correctFile = true;  
-    }catch(NullPointerException npe){
-        
-      fileName = JOptionPane.showInputDialog("Enter correct file name: ");
-      
-    }
+      }catch(NullPointerException npe){
+        fileName = JOptionPane.showInputDialog(
+          "Enter correct file name (it should be \"src/main/db/recipes.txt\"): ");
+        if (fileName == null) System.exit(0); //if user click on cancel button
+      }
     }
     
     
