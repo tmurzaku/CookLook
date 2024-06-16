@@ -37,7 +37,7 @@ public class Gui {
   private final String[] COMPARE = { ">", "<" };
   private final String INFO = "Enter recipe or ingredient name: ";
   private ArrayList<Recipe> collection;
-  private String fileName = "recipes.txt";
+  private String fileName = "src/main/db/recipes.txt";
 
   // Constructor method for Gui object
   public Gui() {
