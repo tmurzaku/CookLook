@@ -38,8 +38,8 @@ public class Recipe {
     this.ingredients = new ArrayList<String>();
     String[] strIngredients = ingredients.split(",");
     // Separating values by commas
-    for (String el : strIngredients) {
-      this.ingredients.add(el);
+    for (int i = 0; i < strIngredients.length; i++) {
+      this.ingredients.add(strIngredients[i]);
     }
     this.instructions = new ArrayList<String>();
     String[] strInstructions = instructions.split("[.]");
@@ -116,7 +116,7 @@ public class Recipe {
     this.name = name;
   }
 
-  public int[] getNutrients() {
+  private int[] getNutrients() {
     return nutrients;
   }
 
@@ -144,7 +144,9 @@ public class Recipe {
         String str = sc.nextLine();
         String[] elements = str.split("\t");
         if (elements.length == 7) {
-          Recipe recipe = new Recipe(elements[0], elements[1], elements[2], elements[3], elements[4], elements[5],
+          Recipe recipe = new Recipe(elements[0], elements[1],
+              elements[2], elements[3],
+              elements[4], elements[5],
               elements[6]);
           if (recipe.getTime() != 0) {
             recipes.add(recipe);
